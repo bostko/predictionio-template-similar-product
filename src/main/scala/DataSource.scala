@@ -71,7 +71,7 @@ class DataSource(val dsp: DataSourceParams)
             case "view" => ViewEvent(
               user = event.entityId,
               item = event.targetEntityId.get,
-              t = event.eventTime.getMillis)
+              t = event.eventTime.toEpochMilli)
             case _ => throw new Exception(s"Unexpected event ${event} is read.")
           }
         } catch {
